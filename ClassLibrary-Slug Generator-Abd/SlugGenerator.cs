@@ -1,7 +1,10 @@
 ﻿namespace ClassLibrary_Slug_Generator_Abd
 {
-    public class Class1
+    public class SlugGenerator
     {
+        public static string Generate(string text)
+        {
 
+        }
     }
 }
