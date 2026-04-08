@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary_Slug_Generator_Abd
+﻿using System.Text.RegularExpressions;
+
+namespace ClassLibrary_Slug_Generator_Abd
 {
     public class SlugGenerator
     {
@@ -6,37 +8,18 @@
         {
             text = text.ToLower();
 
-            int start = 0;
-            while (start < text.Length && !Char.IsLetter(text[start]))
-                start++;
+            char[] junk = text.Where(ch => !char.IsLetter(ch)).ToArray();
+            text = text.Trim(junk);
 
-            int end = text.Length - 1;
-            while (end >= 0 && !Char.IsLetter(text[end]))
-                end--;
+            string pattern2 = @"[^a-zA-Z_\s]+";
+            string replacement = "";
+            text = Regex.Replace(text, pattern2, replacement);
 
-            text = text.Substring(start, end - start + 1);
+            string targetSign = "-";
+            string pattern1 = @"[_\s]+";
+            text = Regex.Replace(text, pattern1, targetSign);
 
-            string slug = "";
-            for (int i = 0; i < text.Length; i++)
-            {
-                if (Char.IsLetter(text[i]))
-                    slug += text[i];
-                else
-                {
-                    int j = i;
-                    bool isSeparator = false;
-                    while (j < text.Length && !Char.IsLetter(text[j]))
-                    {
-                        if (text[j] == ' ' || text[j] == '_')
-                            isSeparator = true;
-                        j++;
-                    }
-                    if (isSeparator)
-                        slug += '-';
-                    i = j - 1;
-                }
-            }
-            return slug;
+            return text;
         }
     }
 }
