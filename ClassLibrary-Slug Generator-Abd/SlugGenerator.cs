@@ -8,16 +8,14 @@ namespace ClassLibrary_Slug_Generator_Abd
         {
             text = text.ToLower();
 
-            char[] junk = text.Where(ch => !char.IsLetter(ch)).ToArray();
-            text = text.Trim(junk);
+            char[] edgeSymbols = text.Where(ch => !char.IsLetter(ch)).ToArray();
+            text = text.Trim(edgeSymbols);
 
-            string pattern2 = @"[^a-zA-Z_\s]+";
-            string replacement = "";
-            text = Regex.Replace(text, pattern2, replacement);
+            string invalidCharsPattern = @"[^a-zA-Z_\s]+";
+            text = Regex.Replace(text, invalidCharsPattern, "");
 
-            string targetSign = "-";
-            string pattern1 = @"[_\s]+";
-            text = Regex.Replace(text, pattern1, targetSign);
+            string wordSeparatorsPattern = @"[_\s]+";
+            text = Regex.Replace(text, wordSeparatorsPattern, "-");
 
             return text;
         }
