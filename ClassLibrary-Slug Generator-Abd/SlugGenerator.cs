@@ -6,9 +6,7 @@ namespace ClassLibrary_Slug_Generator_Abd
     {
         public static string Generate(string text)
         {
-            char[] edgeSymbols = text.Where(ch => !char.IsLetter(ch)).ToArray();
-
-            return Regex.Replace(Regex.Replace(text.ToLower().Trim(edgeSymbols),@"[^a-zA-Z_\s]+", ""),@"[_\s]+", "-"); ;
+            return string.Join("-", new string(text.Where(ch => char.IsLetter(ch) || ch == ' ' || ch == '_').ToArray()).ToLower().Split(new char[] { ' ', '_' }, StringSplitOptions.RemoveEmptyEntries));
         }
     }
 }
