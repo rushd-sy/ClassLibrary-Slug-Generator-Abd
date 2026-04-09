@@ -1,10 +1,12 @@
-﻿namespace ClassLibrary_Slug_Generator_Abd
+﻿using System.Text.RegularExpressions;
+
+namespace ClassLibrary_Slug_Generator_Abd
 {
     public class SlugGenerator
     {
         public static string Generate(string text)
         {
-            //I forgot to make brunch for Pr 
+            return string.Join("-", new string(text.Where(ch => char.IsLetter(ch) || ch == ' ' || ch == '_').ToArray()).ToLower().Split(new char[] { ' ', '_' }, StringSplitOptions.RemoveEmptyEntries));
         }
     }
 }
