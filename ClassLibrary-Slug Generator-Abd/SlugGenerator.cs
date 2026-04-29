@@ -6,7 +6,14 @@ namespace ClassLibrary_Slug_Generator_Abd
     {
         public static string Generate(string text)
         {
-            return string.Join("-", new string(text.Where(ch => char.IsLetter(ch) || ch == ' ' || ch == '_').ToArray()).ToLower().Split(new char[] { ' ', '_' }, StringSplitOptions.RemoveEmptyEntries));
+            return string.Join("-", text
+            .Where(ch => char.IsLetter(ch) || ch == ' ' || ch == '_')
+            .ToArray()                                               
+            .AsMemory()                                             
+            .ToString()
+            .ToLower()                                               
+            .Split(new[] { ' ', '_' }, StringSplitOptions.RemoveEmptyEntries) 
+);
         }
     }
 }
