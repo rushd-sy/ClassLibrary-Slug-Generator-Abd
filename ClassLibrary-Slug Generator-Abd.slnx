@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="ClassLibrary-Slug Generator-Abd/ClassLibrary-Slug Generator-Abd.csproj" />
+  <Project Path="TestSlugGenerator/TestSlugGenerator.csproj" Id="00c324ac-99b5-4c6e-bc10-745b0eb0f690" />
 </Solution>
