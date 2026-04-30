@@ -5,12 +5,6 @@ namespace TestSlugGenerator
     public class UnitTest1
     {
 
-        private readonly SlugGenerator _slugGenerator;
-        public UnitTest1()
-        {
-            _slugGenerator = new SlugGenerator();
-        }
-
         [Fact]
         public void SlugGenerator_Should_Return_Correct()
         {
@@ -18,7 +12,7 @@ namespace TestSlugGenerator
             var input = "Hello World! ";
             var expected = "hello-world";
 
-            var result = _slugGenerator.Generate(input);
+            var result = SlugGenerator.Generate(input);
 
             Assert.Equal(expected, result);
         }
@@ -27,9 +21,9 @@ namespace TestSlugGenerator
         [Fact]
         public void SlugGenerate_ShouldThrowException_WhenInputIsNull()
         {
-            string input = null;
+            string? input = null;
 
-            Action act = () => _slugGenerator.Generate(input);
+            Action act = () => SlugGenerator.Generate(input);
 
             Assert.Throws<ArgumentNullException>(act);
         }
@@ -40,7 +34,7 @@ namespace TestSlugGenerator
             var input = "";
             var expected = "";
 
-            var result = _slugGenerator.Generate(input);
+            var result = SlugGenerator.Generate(input);
 
             Assert.Equal(expected, result);
 
@@ -51,7 +45,7 @@ namespace TestSlugGenerator
         {
             var input = "!@#$%^&*()";
             var expected = "";
-            var result = _slugGenerator.Generate(input);
+            var result = SlugGenerator.Generate(input);
             Assert.Equal(expected, result);
         }
 
@@ -61,7 +55,7 @@ namespace TestSlugGenerator
             var input = "شقة للبيع";
             var expected = "شقة-للبيع";
 
-            var result = _slugGenerator.Generate(input);
+            var result = SlugGenerator.Generate(input);
 
             Assert.Equal(expected, result);
 

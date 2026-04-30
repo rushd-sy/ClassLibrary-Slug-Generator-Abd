@@ -1,10 +1,8 @@
-﻿using System.Text.RegularExpressions;
-
-namespace ClassLibrary_Slug_Generator_Abd
+﻿namespace ClassLibrary_Slug_Generator_Abd
 {
-    public class SlugGenerator
+    public static class SlugGenerator
     {
-        public string Generate(string text)
+        public static string Generate(string text)
         {
             if (text == null)
             {
@@ -16,7 +14,7 @@ namespace ClassLibrary_Slug_Generator_Abd
             .ToArray()                                               
             .AsMemory()                                             
             .ToString()
-            .ToLower()                                               
+            .ToLowerInvariant()
             .Split(new[] { ' ', '_' }, StringSplitOptions.RemoveEmptyEntries) 
 );
         }
