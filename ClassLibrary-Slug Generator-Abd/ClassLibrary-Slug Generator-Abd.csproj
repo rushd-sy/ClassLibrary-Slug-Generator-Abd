@@ -5,6 +5,14 @@
     <RootNamespace>ClassLibrary_Slug_Generator_Abd</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>Abd.SlugGenerator</PackageId>
+    <Authors>Abd Al-Rahman</Authors>
+    <Company>Abd Al-Rahman</Company>
+    <Product>Abd Slug Generator Tool</Product>
+    <Description>`A high-performance URL slug generator for .NET applications</Description>
+    <PackageTags>slug url seo generator dotnet</PackageTags>
+    <RepositoryUrl>https://github.com/rushd-sy/ClassLibrary-Slug-Generator-Abd</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
