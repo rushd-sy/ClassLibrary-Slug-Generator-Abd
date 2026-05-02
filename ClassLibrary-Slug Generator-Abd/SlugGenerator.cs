@@ -18,5 +18,13 @@
             .Split(new[] { ' ', '_' }, StringSplitOptions.RemoveEmptyEntries) 
 );
         }
+
+
+        public static string GenerateUnique(string text)
+        {
+            System.Guid guid = System.Guid.NewGuid();
+            return guid.ToString();
+        }
+
     }
 }
