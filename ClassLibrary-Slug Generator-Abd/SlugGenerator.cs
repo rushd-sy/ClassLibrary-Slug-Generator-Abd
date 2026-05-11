@@ -4,10 +4,7 @@
     {
         public static string Generate(string text)
         {
-            if (text == null)
-            {
-                throw new ArgumentNullException(nameof(text));
-            }
+            ArgumentNullException.ThrowIfNull(text);
 
             return string.Join("-", text
             .Where(ch => char.IsLetter(ch) || ch == ' ' || ch == '_')
