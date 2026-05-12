@@ -4,10 +4,7 @@
     {
         public static string Generate(string text)
         {
-            if (text == null)
-            {
-                throw new ArgumentNullException(nameof(text));
-            }
+            ArgumentNullException.ThrowIfNull(text);
 
             return string.Join("-", text
             .Where(ch => char.IsLetter(ch) || ch == ' ' || ch == '_')
@@ -18,5 +15,15 @@
             .Split(new[] { ' ', '_' }, StringSplitOptions.RemoveEmptyEntries) 
 );
         }
+
+
+        public static string GenerateUnique(string text)
+        {
+            ArgumentNullException.ThrowIfNull(text);
+
+            System.Guid uniqueId = System.Guid.NewGuid();
+            return $"{Generate(text)}-{uniqueId}";
+        }
+
     }
 }

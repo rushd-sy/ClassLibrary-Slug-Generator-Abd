@@ -426,3 +426,11 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+# تجاهل المجلدات التي تظهر بالخطأ
+ClassLibrary1/
+ClassLibrary-SlugGenerator-ABD/
+
+# تجاهل ملفات البناء الخاصة بـ C#
+[Bb]in/
+[Oo]bj/
+.vs/
