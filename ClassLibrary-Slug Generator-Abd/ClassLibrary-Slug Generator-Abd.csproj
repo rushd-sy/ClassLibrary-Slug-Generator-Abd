@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Abd.SlugGenerator</PackageId>
     <Authors>Abd Al-Rahman</Authors>
-    <Company>Abd Al-Rahman</Company>
+    <Company></Company>
     <Product>Abd Slug Generator Tool</Product>
     <Description>`A high-performance URL slug generator for .NET applications</Description>
     <PackageTags>slug url seo generator dotnet</PackageTags>

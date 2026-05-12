@@ -19,8 +19,10 @@
 
         public static string GenerateUnique(string text)
         {
-            System.Guid guid = System.Guid.NewGuid();
-            return guid.ToString();
+            ArgumentNullException.ThrowIfNull(text);
+
+            System.Guid uniqueId = System.Guid.NewGuid();
+            return $"{Generate(text)}-{uniqueId}";
         }
 
     }
