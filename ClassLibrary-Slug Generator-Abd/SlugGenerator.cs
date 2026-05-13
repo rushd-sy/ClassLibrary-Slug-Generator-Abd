@@ -2,17 +2,17 @@
 {
     public static class SlugGenerator
     {
-        public static string Generate(string text)
+        public static string Generate(string text, char separator = '-')
         {
             ArgumentNullException.ThrowIfNull(text);
 
-            return string.Join("-", text
-            .Where(ch => char.IsLetter(ch) || ch == ' ' || ch == '_')
+            return string.Join(separator, text
+            .Where(ch => char.IsLetter(ch) || ch == ' ' || ch == separator)
             .ToArray()                                               
             .AsMemory()                                             
             .ToString()
             .ToLowerInvariant()
-            .Split(new[] { ' ', '_' }, StringSplitOptions.RemoveEmptyEntries) 
+            .Split(new[] { ' ', separator }, StringSplitOptions.RemoveEmptyEntries) 
 );
         }
 
